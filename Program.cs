@@ -199,27 +199,33 @@ namespace homeworksCS
             Console.Write("Введіть напрямок лінії (горизонтальна, вертикальна): ");
             string input3 = Console.ReadLine();
 
-            if (int.TryParse(input1, out int A) && int.TryParse(input2, out int B))
+            if (int.TryParse(input1, out int A) && !string.IsNullOrEmpty(input2))
             {
-                if (A > B)
-                {
-                    int temp = A;
-                    A = B;
-                    B = temp;
-                }
+                char B = input2[0];
 
-                for (int i = A; i <= B; i++)
+                if (input3.ToLower() == "горизонтальна")
                 {
-                    for (int j = 1; j <= i; j++)
+                    for (int i = 0; i < A; i++)
                     {
-                        Console.Write(i + " ");
+                        Console.Write(B);
                     }
                     Console.WriteLine();
+                }
+                else if (input3.ToLower() == "вертикальна")
+                {
+                    for (int i = 0; i < A; i++)
+                    {
+                        Console.WriteLine(B);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Невірний напрямок. Введіть 'горизонтальна' або 'вертикальна'.");
                 }
             }
             else
             {
-                Console.WriteLine("Введіть коректні числа");
+                Console.WriteLine("Введіть коректне число для довжини та хоча б один символ для заповнювача.");
             }
         }
     }
