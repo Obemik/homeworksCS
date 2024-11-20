@@ -1,10 +1,24 @@
-﻿namespace homeworksCS
+﻿using System;
+
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        Console.Write("Enter the source string: ");
+        string source = Console.ReadLine();
+
+        Console.Write("Enter the substring to search: ");
+        string substring = Console.ReadLine();
+
+        int count = 0;
+        int startIndex = 0;
+
+        while ((startIndex = source.IndexOf(substring, startIndex, StringComparison.Ordinal)) != -1)
         {
-            Console.WriteLine("Hello, World!");
+            count++;
+            startIndex += substring.Length; 
         }
+
+        Console.WriteLine($"The substring \"{substring}\" occurs {count} times in the source string.");
     }
 }
