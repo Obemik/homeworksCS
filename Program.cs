@@ -1,10 +1,23 @@
-﻿namespace homeworksCS
+﻿using System;
+
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        Console.Write("Enter a sentence: ");
+        string sentence = Console.ReadLine();
+
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y' };
+
+        int vowelCount = 0;
+        foreach (char c in sentence)
         {
-            Console.WriteLine("Hello, World!");
+            if (Array.Exists(vowels, v => v == c))
+            {
+                vowelCount++;
+            }
         }
+
+        Console.WriteLine($"The sentence contains {vowelCount} vowels.");
     }
 }
