@@ -1,10 +1,19 @@
-﻿namespace homeworksCS
+﻿using System;
+
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        Console.Write("Enter a sentence: ");
+        string sentence = Console.ReadLine();
+
+        int wordCount = 0;
+        if (!string.IsNullOrWhiteSpace(sentence)) 
         {
-            Console.WriteLine("Hello, World!");
+            string[] words = sentence.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            wordCount = words.Length;
         }
+
+        Console.WriteLine($"The sentence contains {wordCount} words.");
     }
 }
